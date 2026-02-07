@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Explorer</title>
+
+<style>
+:root {
+    --primary: #1e88e5;
+    --accent: #64ffda;
+    --dark: #0d47a1;
+    --deep: #0a2a66;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* only vertical scroll */
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top right, #64ffda33, transparent 40%),
+        linear-gradient(135deg, #0d47a1, #1e88e5);
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    position: relative;
+    font-size:11.5px;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: rotate(90deg);
+}
+
+/* DROPDOWN MENU */
+.menu-dropdown {
+    position: absolute;
+    top: 70px;
+    left: 24px;
+    width: 300px;
+    background: linear-gradient(160deg, #0a2a66, #0d47a1);
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.menu-dropdown a {
+    padding: 16px 22px;
+    text-decoration: none;
+    color: #e3f2fd;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.35s;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 15px;
+}
+
+.menu-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.menu-dropdown a:hover {
+    background: linear-gradient(90deg, rgba(100,255,218,0.25), transparent);
+    color: var(--accent);
+    padding-left: 30px;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    gap: 40px;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -6px;
+    left: 0;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* PROFILE */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #64ffda, #1e88e5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN */
+main {
+    flex: 1;
+    padding: 30px 20px;
+}
+
+.content-box {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    color: #333;
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+h1 {
+    color: #0d47a1;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #1e88e5;
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+
+p, li {
+    line-height: 1.8;
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+blockquote {
+    margin-top: 20px;
+    padding: 18px 22px;
+    background: #e3f2fd;
+    border-left: 5px solid #1e88e5;
+    border-radius: 8px;
+    font-style: italic;
+    color: #0d47a1;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 14px;
+    background: rgba(0,0,0,0.35);
+    font-size: 0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="branches.html">🧬 Branches of Science</a>
+        <a href="constellations.html">🌌 Constellations</a>
+        <a href="planets.html">🪐 Planets</a>
+    </div>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="games.html">Games</a>
+        <a href="about-us.html">About Us</a>
+    </nav>
+
+    <div class="profile">
+        <div class="profile-icon">👤</div>
+        <span id="profileName">Guest</span>
+    </div>
+</header>
+
+<main>
+<div class="content-box">
+
+<h1>What is Science?</h1>
+
+<p>
+Science is the human pursuit of understanding the universe through observation and evidence rather than tradition, intuition, or authority. 
+It is less a "body of knowledge" and more a "way of thinking"—a rigorous commitment to checking our ideas against reality.
+</p>
+
+<h2>The Philosophy of Systematic Doubt</h2>
+<p>
+Science begins with the humble admission that we might be wrong. This is known as skepticism. 
+A scientist doesn't just look for evidence that supports their idea; they actively try to prove themselves wrong. 
+This process, called falsifiability, ensures that only the most robust ideas survive.
+</p>
+<p>
+This journey is guided by empiricism, the belief that knowledge comes primarily from sensory experience. 
+If a claim cannot be measured, tested, or observed in some way, it falls outside the realm of science and into the realm of philosophy or faith.
+</p>
+
+<h2>The Engine of Discovery: The Scientific Method</h2>
+<p>
+The process of science is a repeating loop designed to strip away human bias. 
+It typically starts with an observation that leads to a "why" or "how" question. 
+From there, a scientist forms a hypothesis—a specific, testable prediction.
+</p>
+<p>
+The heart of the process is the experiment, where variables are controlled to see if the hypothesis holds up under pressure. 
+If the data contradicts the hypothesis, the idea is discarded or refined. 
+If the data supports it, the results are shared with the global community for peer review.
+</p>
+
+<h2>The Tree of Knowledge: Main Disciplines</h2>
+<p>
+Physical Sciences focus on the laws of the non-living universe, including Physics, Chemistry, and Astronomy.
+</p>
+<p>
+Life Sciences focus on living organisms, from Genetics and Microbiology to Ecology and Zoology.
+</p>
+<p>
+Earth and Space Sciences examine our planet and its systems, including Geology, Meteorology, and Oceanography.
+</p>
+<p>
+Social Sciences apply scientific methods to human behavior and societies, such as Psychology and Economics.
+</p>
+
+<h2>Theory vs. Law: A Common Misconception</h2>
+<p>
+A Scientific Theory is an exhaustive explanation supported by extensive evidence, while a Scientific Law describes what happens without explaining why.
+</p>
+
+<blockquote>
+The Big Picture: Science is a self-correcting map. It doesn’t provide absolute truth, but it provides the most accurate map of reality we have.
+</blockquote>
+
+</div>
+</main>
+
+<footer>
+© 2026 by Anica Borja
+</footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menuDropdown");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+document.addEventListener("click", function (e) {
+    const menu = document.getElementById("menuDropdown");
+    const btn = document.querySelector(".menu-btn");
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.style.display = "none";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const username = localStorage.getItem("username");
+    if (username) {
+        document.getElementById("profileName").textContent = username;
+    }
+});
+</script>
+
+</body>
+</html>
